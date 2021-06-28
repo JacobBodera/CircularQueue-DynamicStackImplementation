@@ -40,7 +40,7 @@ int DynamicStack::size() const
 void DynamicStack::push(StackItem value)
 {
     if (size_ == capacity_) {
-        increaseCap();
+        increaseCap(items_);
     }
     items_[size_] = value;
     ++size_;
@@ -51,8 +51,8 @@ DynamicStack::StackItem DynamicStack::pop()
     if (size_ == 0)
         return EMPTY_STACK;
 
-    else if (size_ < (capacity_ / 4) && (capacity_ / 4) < init_capacity_)
-        decreaseCap();
+    else if ((size_ - 1) <= (capacity_ / 4) && (capacity_ / 2) >= init_capacity_)
+        decreaseCap(items_);
 
     --size_;
     return items_[size_];
