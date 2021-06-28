@@ -76,7 +76,11 @@ public:
     // is empty before the pop, the EMPTY STACK constant is returned.
     StackItem pop();
 
-    void copyToNew (StackItem items, StackItem & newItems);
+    void copyToNew (StackItem items, StackItem *newItems);
+
+    void increaseCap (StackItem *items);
+
+    void decreaseCap (StackItem *items);
 };
 
 #endif //MTE140_A2_DYNAMIC_STACK_H
