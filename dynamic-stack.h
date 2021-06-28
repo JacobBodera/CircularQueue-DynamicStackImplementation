@@ -75,6 +75,8 @@ public:
     // the initial capacity, then no resizing takes place. Finally, If the stack
     // is empty before the pop, the EMPTY STACK constant is returned.
     StackItem pop();
+
+    void copyToNew (StackItem items, StackItem & newItems);
 };
 
 #endif //MTE140_A2_DYNAMIC_STACK_H
