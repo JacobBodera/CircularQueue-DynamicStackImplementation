@@ -66,12 +66,17 @@ CircularQueue::QueueItem CircularQueue::dequeue()
 
 CircularQueue::QueueItem CircularQueue::peek() const
 {
+    if (empty())
+        return EMPTY_QUEUE;
     return items_[head_];
 }
 
 void CircularQueue::print() const
 {
     for (int i = 0; i < size_; i++) {
-
+        std::cout << "[ " << items_[(head_ + i) % capacity_] << " ]";
+        if (i != size_ - 1)
+            std::cout << " <- ";
     }
+    std::cout << std::endl;
 }
